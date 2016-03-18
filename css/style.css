@@ -45,7 +45,7 @@ canvas{
   height: 100%;
   background-image: url('action.jpg');
     overflow: hidden;
-    background-color: #bbdefb;
+    background-color: #000;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
