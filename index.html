@@ -1,1 +1,91 @@
-Hello, World!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>particles.js</title>
+  <meta name="description" content="Sentiment Anaylics">
+  <meta name="author" content="Suvam Mohanty" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link rel="stylesheet" media="screen" href="css/style.css">
+     <script>
+   $(function ()
+         {
+           
+           $("#getMeaning").click(function () {
+               var word = $("#word").val();
+               $.ajax({
+                   url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text="+word+"",
+                type: 'GET',   
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    document.getElementById("sentiment").innerHTML = data.type; 
+                    document.getElementById("polarity").innerHTML = data.score;
+                /*if(data.success == true){ // if true (1)
+                  setTimeout(function(){// wait for 5 secs(2)
+                       window.location.reload(); // then reload the page.(3)
+                  }, 500); 
+               }*/
+                                },
+                error: function(err) { alert(err); },
+                beforeSend: function(xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "Dy7dnkpLg9mshz6MO8qJ3nJMTwthp1DF1gAjsnBoaQyAuHTFI3");
+    }
+});        
+           })               
+       });
+       function render(meanings){
+           var ul = $("#meanings");
+           ul.empty();
+           for(var m in meanings)
+           {
+               var meaning = meanings[m];
+               var word = meaning.type;
+               var text = meaning.score;
+               
+               console.log(word);
+               
+               var li = $("<p>").append(word);
+               var p = $("<p>").append(floor(text)).appendTo(li);
+               ul.append(li);               
+           }
+           
+       }
+   </script>
+</head>
+<body>
+<div id="particles-js">
+    <div class="record" >
+			<h1>Sentiment Your thoughts</h1>
+			<input id="word" type="text" value="" placeholder="Sentiment Your thoughts">
+    <script src="src/superplaceholder.js"></script>
+		<script>
+		superplaceholder({
+			el: word,
+			sentences: [ 'Any Mood Works!', 'I feel auspicious', 'It was so boring', 'How was your day?' ],
+			options: {
+				letterDelay: 80,
+				loop: true,
+				startOnFocus: false
+			}
+		})
+		</script>
+        <button class="btn  explore-btn" id="getMeaning">Explore</button>
+        <br/><br/> <br/><br/>
+        <ul>
+        <span class="type">Sentiment:&nbsp;&nbsp;&nbsp;<span id="sentiment"></span></span><br/><br/><br/>
+        <span class="score">Polarity:&nbsp;&nbsp;&nbsp;<span id="polarity"></span></span>
+        </ul>
+    </div>
+    </div>
+    
+<!-- scripts -->
+    <script src="js/lib/stats.js"></script>
+    <script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+
+
+
+</body>
+</html>
