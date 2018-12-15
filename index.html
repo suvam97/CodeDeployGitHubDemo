@@ -15,10 +15,11 @@
            $("#getMeaning").click(function () {
                var word = $("#word").val();
                $.ajax({
-                   url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text="+word+"",
+                url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text="+word+"",
                 type: 'GET',   
                 dataType: 'json',
                 success: function(data) {
+					$('.overlay').hide();
                     console.log(data);
                     document.getElementById("sentiment").innerHTML = data.type; 
                     document.getElementById("polarity").innerHTML = data.score;
@@ -27,7 +28,7 @@
                        window.location.reload(); // then reload the page.(3)
                   }, 500); 
                }*/
-                                },
+                },
                 error: function(err) { alert(err); },
                 beforeSend: function(xhr) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "Dy7dnkpLg9mshz6MO8qJ3nJMTwthp1DF1gAjsnBoaQyAuHTFI3");
@@ -52,9 +53,16 @@
            }
            
        }
+	   function hideLoader() {
+			$('.overlay').hide();
+	   }
+		$(window).ready(hideLoader);
    </script>
 </head>
 <body>
+<div class="overlay">
+<div id="loading"></div>
+</div>
 <div id="particles-js">
     <div class="record" >
 			<h1>Sentiment Your thoughts</h1>
@@ -71,7 +79,7 @@
 			}
 		})
 		</script>
-        <button class="btn  explore-btn" id="getMeaning">Explore</button>
+        <button class="btn  explore-btn" id="getMeaning" onclick="$('.overlay').show()">Explore</button>
         <br/><br/> <br/><br/>
         <ul>
         <span class="type">Sentiment:&nbsp;&nbsp;&nbsp;<span id="sentiment"></span></span><br/><br/><br/>
