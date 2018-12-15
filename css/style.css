@@ -1,0 +1,127 @@
+/* =============================================================================
+Author:Suvam Mohanty
+DO NOT Overwrite CSS
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* ---- base ---- */
+
+* {
+			box-sizing: border-box;
+		}
+html,body{ 
+	font-family: 'Roboto', sans-serif;
+			text-align: center;
+			margin: 0;
+    overflow-y: hidden;
+}
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+canvas{
+  vertical-align:bottom;
+}
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-image: url('action.jpg');
+    overflow: hidden;
+    background-color: #000;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.record{
+  font-size:1.3em;
+  position: absolute;
+  z-index:10;
+  width:325px;
+  height:220px;
+ /* background:#eee;*/
+top: 35%;
+left: 35%;
+transform: translate(-50%, -50%);
+  padding:20px;
+  @include border-radius(5px);
+  @include box-sizing(border-box);
+
+  z-index:100;
+
+  &.hide{
+    display:none;
+  }
+}
+h3 {
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			padding-bottom: 10px;
+			max-width: 70vw;
+			margin: 3em auto;
+			border-bottom: 2px solid rgba(0,0,0,0.07);
+		}
+h1 {
+			font-weight: bold;
+            color:#fff;
+			font-size:  1.1em;
+			margin-bottom: 5px;
+		}
+input[type="text"] {
+			border: 3px solid rgba(0,0,0,0.1);
+			color: #666;
+			border-radius: 5px;
+			padding: 0.5em 1em;
+			margin-bottom: 10px;
+			font-size: 2em;
+			width: 70vw;
+			max-width: 600px;
+			background-clip: padding-box;
+		}
+		input[type="text"]:focus {
+			outline: 0;
+		}
+.btn {
+			display: inline-block;
+			text-decoration: none;
+            margin-left: 205px;
+			padding: 0.4em 1em;
+			background: #0000FF;
+			color: #fff000;
+            font-weight:600;
+			border: 0;
+			/*border-bottom: 6px solid rgba(0, 0, 0, 0.3);*/
+			border-radius: 6px;
+			/*opacity: 0.85;*/
+			cursor: pointer;
+			transition: 0.25s ease;
+		}
+		.explore-btn {
+			font-size: 1.5em;
+		}
+
+#sentiment, #polarity, .type, .score {
+            margin-top: 50px;
+    text-transform: uppercase;
+			font-weight: bold;
+            color:#fff;
+			font-size:  1.1em;
+			margin-bottom: 5px;
+		}

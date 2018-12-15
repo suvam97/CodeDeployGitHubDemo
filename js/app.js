@@ -1,0 +1,17 @@
+ /* -----------------------------------------------
+/* How to use? : Check the GitHub README
+/* ----------------------------------------------- */
+
+/* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
+/*
+particlesJS.load('particles-js', 'particles.json', function() {
+  console.log('particles.js loaded - callback');
+});
+*/
+
+/* Otherwise just put the config content (json): */
+
+particlesJS("particles-js", {"particles":{"number":{"value":25,"density":{"enable":true,"value_area":710.2328774690454}},"color":{"value":"#fff"},"shape":{"type":"star","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":true,"anim":{"enable":true,"speed":0.8120772123013451,"opacity_min":0.1,"sync":false}},"size":{"value":4.008530152163807,"random":true,"anim":{"enable":true,"speed":34.107242916656496,"size_min":3.248308849205381,"sync":false}},"line_linked":{"enable":false,"distance":2000,"color":"#ffffff","opacity":0.1763753266952075,"width":0.8017060304327615},"move":{"enable":true,"speed":1.603412060865523,"direction":"bottom","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":801.7060304327614,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":251.74825174825176,"line_linked":{"opacity":0.5}},"bubble":{"distance":400,"size":4,"duration":0.3,"opacity":1,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+
+var count_particles, stats, update; stats = new Stats; 
+stats.setMode(0);  document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end();requestAnimationFrame(update); }; requestAnimationFrame(update);;
