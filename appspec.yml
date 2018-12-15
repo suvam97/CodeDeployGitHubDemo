@@ -2,15 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: /index.html
-    destination: /var/www/html/
+    destination: /var/www/myApp/
   - source: css
-    destination: /var/www/css/
+    destination: /var/www/myApp/css
   - source: js
-    destination: /var/www/js
+    destination: /var/www/myApp/js
   - source: src
-    destination: /var/www/src/
+    destination: /var/www/myApp/src
   - source: /particles.json
-    destination: /var/www/json/
+    destination: /var/www/myApp/
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
